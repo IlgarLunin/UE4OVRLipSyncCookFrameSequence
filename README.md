@@ -15,6 +15,7 @@ Node expects to get uncompressed wave pcm data with 44 bytes header.
 
 # Installation
 
-1) Copy **CookFrameSequenceAsync.h** to `PROJECT_ROOT/Plugins/OVRLipSync/Source/OVRLipSync/Public`
-2) Copy **CookFrameSequenceAsync.cpp** to `PROJECT_ROOT/Plugins/OVRLipSync/Source/OVRLipSync/Private`
-3) Compile and run
+1) Install oculus [ovr lipsync integration](https://developer.oculus.com/downloads/package/oculus-lipsync-unreal/) plugin to you project
+2) Copy **CookFrameSequenceAsync.h** to `PROJECT_ROOT/Plugins/OVRLipSync/Source/OVRLipSync/Public`
+3) Copy **CookFrameSequenceAsync.cpp** to `PROJECT_ROOT/Plugins/OVRLipSync/Source/OVRLipSync/Private`
+4) Compile and run
