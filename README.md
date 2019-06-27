@@ -1,7 +1,7 @@
 # UE4 OVR lipsync cook frame sequence
 
 Async node to build ovr frame sequence during runtime.
-Written to be used with [Google Speech Kit]() plugin.
+Written to be used with [Google Speech Kit](https://github.com/IlgarLunin/UE4GoogleSpeechKit-docs) plugin.
 
 ![](pics/ovrframesequence.png)
 
