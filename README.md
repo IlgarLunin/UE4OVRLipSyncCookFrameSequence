@@ -5,6 +5,10 @@ Written to be used with [Google Speech Kit](https://github.com/IlgarLunin/UE4Goo
 
 ![](pics/ovrframesequence.png)
 
+Demo:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/B78aQly2wrI/0.jpg)](https://www.youtube.com/watch?v=B78aQly2wrI)
+
 # Raw samples content
 
 Node expects to get uncompressed wave pcm data with 44 bytes header.
