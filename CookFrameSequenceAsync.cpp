@@ -25,6 +25,7 @@ void UCookFrameSequenceAsync::Activate()
     if (RawSamples.Num() <= 44)
     {
         onFrameSequenceCooked.Broadcast(nullptr, false);
+        return;
     }
 
     FWaveModInfo waveInfo;
@@ -34,7 +35,7 @@ void UCookFrameSequenceAsync::Activate()
     {
         int32 NumChannels = *waveInfo.pChannels;
         int32 SampleRate = *waveInfo.pSamplesPerSec;
-        ULONG64 PCMDataSize = waveInfo.SampleDataSize / sizeof(int16_t);
+        auto PCMDataSize = waveInfo.SampleDataSize / sizeof(int16_t);
         int16_t* PCMData = reinterpret_cast<int16_t*>(waveData + 44);
         int32 ChunkSizeSamples = static_cast<int32>(SampleRate * LipSyncSequenceDuration);
         int32 ChunkSize = NumChannels * ChunkSizeSamples;
@@ -61,5 +62,6 @@ void UCookFrameSequenceAsync::Activate()
         });
 
     }
-    onFrameSequenceCooked.Broadcast(nullptr, false);
+    else
+        onFrameSequenceCooked.Broadcast(nullptr, false);
 }
