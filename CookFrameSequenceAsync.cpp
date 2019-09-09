@@ -44,7 +44,7 @@ void UCookFrameSequenceAsync::Activate()
             TEXT("OfflineModel"), TEXT("ovrlipsync_offline_model.pb"))
             : FString();
 
-        Async<void>(EAsyncExecution::Thread, [=]()
+        Async(EAsyncExecution::Thread, [=]()
         {
             UOVRLipSyncFrameSequence* Sequence = NewObject<UOVRLipSyncFrameSequence>();
             UOVRLipSyncContextWrapper context(ovrLipSyncContextProvider_Enhanced, SampleRate, modelPath);
