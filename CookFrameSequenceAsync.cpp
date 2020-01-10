@@ -49,10 +49,11 @@ void UCookFrameSequenceAsync::Activate()
             UOVRLipSyncFrameSequence* Sequence = NewObject<UOVRLipSyncFrameSequence>();
             UOVRLipSyncContextWrapper context(ovrLipSyncContextProvider_Enhanced, SampleRate, modelPath);
             float LaughterScore = 0.0f;
+            int32_t FrameDelayInMs = 0;
             TArray<float> Visemes;
             for (int offs = 0; offs + ChunkSize < PCMDataSize; offs += ChunkSize)
             {
-                context.ProcessFrame(PCMData + offs, ChunkSizeSamples, Visemes, LaughterScore, NumChannels > 1);
+                context.ProcessFrame(PCMData + offs, ChunkSizeSamples, Visemes, LaughterScore, FrameDelayInMs, NumChannels > 1);
                 Sequence->Add(Visemes, LaughterScore);
             }
             AsyncTask(ENamedThreads::GameThread, [Sequence, this]() {
