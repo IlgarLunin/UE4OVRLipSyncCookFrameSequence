@@ -39,6 +39,7 @@ void UCookFrameSequenceAsync::Activate()
         int16_t* PCMData = reinterpret_cast<int16_t*>(waveData + 44);
         int32 ChunkSizeSamples = static_cast<int32>(SampleRate * LipSyncSequenceDuration);
         int32 ChunkSize = NumChannels * ChunkSizeSamples;
+        int BufferSize = 4096;
 
         FString modelPath = UseOfflineModel ? FPaths::Combine(FPaths::ProjectPluginsDir(), TEXT("OVRLipSync"),
             TEXT("OfflineModel"), TEXT("ovrlipsync_offline_model.pb"))
@@ -47,7 +48,7 @@ void UCookFrameSequenceAsync::Activate()
         Async(EAsyncExecution::Thread, [=]()
         {
             UOVRLipSyncFrameSequence* Sequence = NewObject<UOVRLipSyncFrameSequence>();
-            UOVRLipSyncContextWrapper context(ovrLipSyncContextProvider_Enhanced, SampleRate, modelPath);
+            UOVRLipSyncContextWrapper context(ovrLipSyncContextProvider_Enhanced, SampleRate, BufferSize, modelPath);
             float LaughterScore = 0.0f;
             int32_t FrameDelayInMs = 0;
             TArray<float> Visemes;
