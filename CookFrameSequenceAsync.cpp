@@ -4,7 +4,7 @@
 #include "CookFrameSequenceAsync.h"
 #include "Sound/SoundWave.h"
 #include "Misc/ScopedSlowTask.h"
-#include "Async.h"
+#include "Async/Async.h"
 
 constexpr auto LipSyncSequenceUpateFrequency = 100;
 constexpr auto LipSyncSequenceDuration = 1.0f / LipSyncSequenceUpateFrequency;
